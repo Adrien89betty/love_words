@@ -1,0 +1,60 @@
+# Environnement virtuel
+venv/
+env/
+.venv/
+.env/
+
+# Fichiers de configuration spécifiques à l'éditeur
+.idea/
+.vscode/
+*.iml
+
+# Fichiers temporaires et de cache
+*.sass-cache
+.cache/
+node_modules/
+
+# Fichiers Python
+__pycache__/
+*.pyo
+*.pyd
+
+	# Fichiers de configuration et paramètres locaux
+*.local
+*.log
+*.pot
+*.swp
+*.swo
+*.DS_Store
+*.coverage
+local_settings.py
+
+# Fichiers de log
+*.log
+
+# Fichiers de base de données locales (SQLite, non nécessaires pour PostgreSQL)
+# db.sqlite3
+
+# Fichiers spécifiques à PostgreSQL
+*.dump
+*.backup
+
+# Répertoires de tests
+test/
+tests/
+
+# Fichiers de compilation et de déploiement
+dist/
+build/
+*.egg-info/
+*.eggs/
+MANIFEST
+
+# Autres fichiers et dossiers à ignorer
+staticfiles/
+media/
+
+# Fichiers de configuration sensibles
+*.env
+.env.*
+
