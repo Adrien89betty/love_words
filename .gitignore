@@ -3,6 +3,7 @@ venv/
 env/
 .venv/
 .env/
+love_words_env/
 
 # Fichiers de configuration spécifiques à l'éditeur
 .idea/
