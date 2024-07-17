@@ -8,19 +8,17 @@ class SignUpView(View):
     """Signup view."""
     def get(self, request):
         form = SignUpForm()
-        return render(request, 'user_account/signup.html', {'form': form})
+        return render(request, 'registration/signup.html', {'form': form})
 
     def post(self, request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
-            print("Redirecting to the home page...")
             return redirect('main_app:index')
-        print("Invalid form!")
-        return render(request, 'user_account/signup.html', {'form': form})
+        return render(request, 'registration/signup.html', {'form': form})
 
 class CustomLoginView(LoginView):
     """Login view."""
     form_class = LoginForm
-    template_name = 'login.html'
+    template_name = 'registration/login.html'

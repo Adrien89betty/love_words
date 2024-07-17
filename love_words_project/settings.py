@@ -138,4 +138,5 @@ AUTH_USER_MODEL = 'user_account.User'
 
 AUTHENTICATION_BACKENDS = ['user_account.backends.EmailOrUsernameModelBackend']
 
+LOGIN_REDIRECT_URL = 'main_app:index'
 LOGOUT_REDIRECT_URL = 'main_app:index'
