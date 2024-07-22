@@ -10,3 +10,6 @@ class UserProfile(models.Model):
     partner_nickname = models.CharField
     partner_description = models.CharField
     date_added = models.DateTimeField(auto_now_add=True)
+
+
+"""test"""
