@@ -18,4 +18,18 @@ class LoveMessage(models.Model):
     scheduled_date = models.DateField()
     sent_date = models.DateField()
     sent = models.BooleanField(default=False)
+
+class Date(models.Model):
+    date = models.DateField()
     
+class Schedule(models.Model):
+    FREQUENCY_CHOICES = (
+        ('daily', 'Daily'),
+        ('weekly', 'Weekly'),
+        ('monthly', 'Monthly'),
+        ('yearly', 'Yearly'),
+    )
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    frequency = models.CharField(max_length=10, choices=FREQUENCY_CHOICES)
+    custom_dates = models.ManyToManyField(Date)
