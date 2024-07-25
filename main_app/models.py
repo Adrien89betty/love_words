@@ -6,8 +6,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     partner_name = models.CharField(max_length=100)
     partner_email = models.EmailField(max_length=254)
-    partner_birthday = models.CharField
-    partner_nickname = models.CharField
-    partner_description = models.CharField
+    partner_birthday = models.DateField()
+    partner_nickname = models.CharField(max_length=100)
+    partner_description = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
-
