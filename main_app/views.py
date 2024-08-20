@@ -15,7 +15,7 @@ def new_profile(request):
         form = UserProfileForm(data=request.POST)
         if form.is_valid():
             new_profile = form.save(commit=False)
-            new_profile.owner = request.user
+            new_profile.user = request.user
             new_profile.save()
             return redirect('main_app:profile')
 
@@ -25,6 +25,6 @@ def new_profile(request):
 @login_required
 def show_profile(request):
     """Show the user profile."""
-    profile = UserProfile.objects.filter(owner=request.user)
+    profile = UserProfile.objects.filter(user=request.user)
     context = {'profile': profile}
     return render(request, 'main_app/user_profile.html', context)
