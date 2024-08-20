@@ -7,4 +7,5 @@ urlpatterns = [
     # Home page.
     path('', views.index, name='index'),
     path('new_profile/', views.new_profile, name='new_profile'),
+    path('profile/', views.show_profile, name='show_profile'),
 ]
