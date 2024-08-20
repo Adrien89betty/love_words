@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .models import UserProfile
 
 def index(request):
     """Home page."""
@@ -20,3 +21,10 @@ def new_profile(request):
 
     context = {'form': form}
     return render(request, 'main_app/new_profile.html', context)
+
+@login_required
+def show_profile(request):
+    """Show the user profile."""
+    profile = UserProfile.objects.filter(owner=request.user)
+    context = {'profile': profile}
+    return render(request, 'main_app/user_profile.html', context)
