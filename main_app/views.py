@@ -9,19 +9,19 @@ def index(request):
 
 @login_required
 def new_profile(request):
-    """Page allowing the user to fill all the informations about his couple."""
-    if request.method != 'POST':
-        form = NewProfileForm()
-    else:
+    """Page allowing the user to fill all the information about his couple."""
+    if request.method == 'POST':
         form = NewProfileForm(data=request.POST)
         if form.is_valid():
             new_profile = form.save(commit=False)
             new_profile.user = request.user
             new_profile.save()
             return redirect('main_app:profile')
+    else:
+        form = NewProfileForm()
 
-    context = {'form': form}
-    return render(request, 'main_app/new_profile.html', context)
+    return render(request, 'main_app/new_profile.html', {'form': form})
+
 
 @login_required
 def show_profile(request):
