@@ -18,3 +18,6 @@ class NewProfileForm(forms.ModelForm):
             'partner_nickname': 'Partner Nickname',
             'partner_description': 'Partner Description',
         }
+        widgets = {
+            'partner_birthday': forms.DateInput(attrs={'type': 'date'}),
+        }

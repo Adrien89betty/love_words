@@ -16,7 +16,7 @@ def new_profile(request):
             new_profile = form.save(commit=False)
             new_profile.user = request.user
             new_profile.save()
-            return redirect('main_app:profile')
+            return redirect('main_app:show_profile')
     else:
         form = NewProfileForm()
 
