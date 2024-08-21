@@ -20,12 +20,13 @@ def new_profile(request):
     else:
         form = NewProfileForm()
 
-    return render(request, 'main_app/new_profile.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'main_app/new_profile.html', context)
 
 
 @login_required
 def show_profile(request):
     """Show the user profile."""
-    profile = UserProfile.objects.filter(user=request.user)
+    profile = UserProfile.objects.get(user=request.user)
     context = {'profile': profile}
     return render(request, 'main_app/user_profile.html', context)

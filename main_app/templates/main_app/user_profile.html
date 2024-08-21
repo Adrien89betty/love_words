@@ -1,14 +1,16 @@
 {% extends 'main_app/base.html' %}
 
 {% block page_header %}
-
   <h1>User profile page.</h1>
   <h3>All informations about a user's couple life.</h3>
-
-{% endblock page_header %}
-
+{% endblock %}
 {% block content %}
-
-
-
-{% endblock content %}
+  <h3>Your partner's information:</h3>
+  <ul>
+    <li>Name: {{ profile.partner_name }}</li>
+    <li>Email: {{ profile.partner_email }}</li>
+    <li>Birthday: {{ profile.partner_birthday }}</li>
+    <li>Nickname: {{ profile.partner_nickname }}</li>
+    <li>Description: {{ profile.partner_description }}</li>
+  </ul>
+{% endblock %}
