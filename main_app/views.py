@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
+from .forms import NewProfileForm
 
 def index(request):
     """Home page."""
@@ -10,9 +11,9 @@ def index(request):
 def new_profile(request):
     """Page allowing the user to fill all the informations about his couple."""
     if request.method != 'POST':
-        form = UserProfileForm()
+        form = NewProfileForm()
     else:
-        form = UserProfileForm(data=request.POST)
+        form = NewProfileForm(data=request.POST)
         if form.is_valid():
             new_profile = form.save(commit=False)
             new_profile.user = request.user
