@@ -9,13 +9,12 @@ class NewProfileForm(forms.ModelForm):
             'partner_email',
             'partner_birthday',
             'partner_nickname',
-            'partner_description'
+            'partner_description',
         ]
         labels = {
             'partner_name': 'Partner Name',
             'partner_email': 'Partner Email',
             'partner_birthday': 'Partner Birthday',
             'partner_nickname': 'Partner Nickname',
-            'partner_description': 'Partner Description'
+            'partner_description': 'Partner Description',
         }
-
