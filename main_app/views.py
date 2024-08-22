@@ -27,6 +27,11 @@ def new_profile(request):
 @login_required
 def show_profile(request):
     """Show the user profile."""
-    profile = UserProfile.objects.get(user=request.user)
+    try:
+        profile = UserProfile.objects.get(user=request.user)
+    except UserProfile.DoesNotExist:
+        return redirect('main_app:new_profile')
+
     context = {'profile': profile}
     return render(request, 'main_app/user_profile.html', context)
+
