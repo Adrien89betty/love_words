@@ -10,6 +10,10 @@ def index(request):
 @login_required
 def new_profile(request):
     """Page allowing the user to fill all the information about his couple."""
+    existing_profile = UserProfile.objects.filter(user=request.user).first()
+    if existing_profile:
+        return redirect('main_app:show_profile')
+    
     if request.method == 'POST':
         form = NewProfileForm(data=request.POST)
         if form.is_valid():
@@ -34,4 +38,3 @@ def show_profile(request):
 
     context = {'profile': profile}
     return render(request, 'main_app/user_profile.html', context)
-
