@@ -11,13 +11,6 @@ class UserProfile(models.Model):
     partner_description = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
-class LoveMessage(models.Model):
-    """Generated message destinated to the user's partner."""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
-    scheduled_date = models.DateField()
-    sent_date = models.DateField()
-    sent = models.BooleanField(default=False)
 
 class Date(models.Model):
     date = models.DateField()
@@ -33,3 +26,11 @@ class Schedule(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     frequency = models.CharField(max_length=10, choices=FREQUENCY_CHOICES)
     custom_dates = models.ManyToManyField(Date)
+
+class LoveMessage(models.Model):
+    """Generated message destinated to the user's partner."""
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    scheduled_date = models.DateField(Schedule)
+    sent_date = models.DateField()
+    sent = models.BooleanField(default=False)

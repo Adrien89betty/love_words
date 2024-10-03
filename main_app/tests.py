@@ -77,3 +77,7 @@ class LoveMessageModelTest(BaseModelTest):
             sent_date=date(2024, 12, 26),
         )
         self.assertFalse(love_message.sent)
+
+class ScheduleModelTest(BaseModelTest):
+    def test_schedule_creation(self):
+        pass
