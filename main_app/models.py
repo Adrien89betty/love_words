@@ -21,7 +21,7 @@ class LoveMessage(models.Model):
 
 class Date(models.Model):
     date = models.DateField()
-    
+
 class Schedule(models.Model):
     FREQUENCY_CHOICES = (
         ('daily', 'Daily'),
